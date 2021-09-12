@@ -49,16 +49,7 @@ def get_closest_olympic_year(year):
         count += 1
     return olympic_year_list[count]
 
-
-def merge_dictionaries(d1, d2):
-    for key, value in d1.items():
-        if key in d2:
-            value.extend(d2[key])
-        else:
-            value.extend([None])
-    return d1
-
-
+# write results in useful format to an output .CSV file
 def write_results(output_dict):
     with open('mycsvfile.csv', 'w') as f:
         w = csv.DictWriter(f, output_dict.keys())
@@ -69,34 +60,24 @@ def write_results(output_dict):
 
 
 def run():
-    #gdp = get_gdp_dict()
-    #pop = get_population_dict()
-    merged_dictionaries = merge_dictionaries(get_gdp_dict, get_population_dict)
-
-    #merged_dictionaries = get_gdp_dict()
-    #merged_dictionaries =  get_combined_dict()
+    gdp = get_gdp_dict()
+    pop = get_population_dict()
+    merged_dictionaries = (gdp, pop)
 
     medals = get_medals_dict()
     for key, value in medals.items():
-        #if key[0] in merged_dictionaries:
-            #if len(key[0]) == 3:
-        #        value.extend(merged_dictionaries[key[0]])
-            #else:
-            #    print(key[0])
-        #else:
-        #    value.extend([None, None])
+        if key[0] in merged_dictionaries:
+            if len(key[0]) == 3:
+                value.extend(merged_dictionaries[key[0]])
+            else:
+                print(key[0])
+        else:
+            value.extend([None, None])
         value.extend(merged_dictionaries[key[0]] if key[0] in merged_dictionaries else [None, None]) #add population and gdp
 
+    print(medals)
     write_results(medals)
-
 
 run()
 
-
-
-
-
-print(get_medals_dict())
-print(get_population_dict())
-print(get_combined_dict())
-
+print("Processing Completed")
