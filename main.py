@@ -4,8 +4,6 @@
 import csv
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 
 # import olympic medals base data
@@ -23,7 +21,7 @@ olympic_year_list = ['1952', '1956', '1960', '1964', '1968', '1972', '1976', '19
                      '2016', '2020']
 
 
-# Extract a GDP figure for the nearest Olympic year
+# extract a GDP figure for the nearest Olympic year
 def get_gdp_dict():
     with open('gdp.csv', mode='r') as infile: #
         next(infile) #skip header
