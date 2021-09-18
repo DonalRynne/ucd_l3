@@ -1,4 +1,4 @@
-#Presentation - Working & Experimentation project
+# Donal Rynne - Data Analytics for Business - Final Project (Project Rubric) - Script 2 Charts & Presentation
 
 import pandas as pd
 import matplotlib.pyplot as plt
