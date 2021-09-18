@@ -1,4 +1,4 @@
-# Donal Rynne - Data Analytics for Business - Final Project (Project Rubric)
+# Donal Rynne - Data Analytics for Business - Final Project (Project Rubric) - Script 1
 
 
 import csv
